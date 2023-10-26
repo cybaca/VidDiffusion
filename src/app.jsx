@@ -4,6 +4,7 @@ import ShellCommand from './ShellCommand';
 // const { remote } = require('electron');
 // const mainProcess = remote.require('./ShellCommand.js');
 
+
 export const FileContext = createContext(null);
 
 const Header = () => {
