@@ -1,10 +1,13 @@
-const { app, BrowserWindow } = require('electron');
 const path = require('path');
+const os = require('os');
+const child_process = require('child_process');
+const { app, BrowserWindow } = require('electron');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
     app.quit();
 }
+
 
 const createWindow = () => {
     // Create the browser window.
@@ -13,7 +16,11 @@ const createWindow = () => {
         height: 600,
         autoHideMenuBar: true,
         webPreferences: {
+            contextIsolation: true,
+            nodeIntegration: true,
             preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
+            // preload: path.join(__dirname, 'src/preload.js'),
+
         },
     });
 

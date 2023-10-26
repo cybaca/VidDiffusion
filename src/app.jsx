@@ -1,5 +1,8 @@
 import React, { useState, createContext, useContext } from "react";
 import { createRoot } from 'react-dom/client';
+import ShellCommand from './ShellCommand';
+// const { remote } = require('electron');
+// const mainProcess = remote.require('./ShellCommand.js');
 
 export const FileContext = createContext(null);
 
@@ -122,6 +125,7 @@ const App = () => {
                 <Header />
                 <DragAndDrop />
                 {file && <Tutorial />}
+                <ShellCommand />
             </div >
         </FileContext.Provider>
     );
